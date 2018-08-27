@@ -1,0 +1,12 @@
+<h2>Updating Movimento Mensalista: {{ movMens }}</h2>
+
+<!-- OBS: Aqui é passado um argumento(parametro) id -->
+<form action="{% url 'core_mov_mens_update' movMens.id %}" method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Salvar</button>
+
+</form>
+

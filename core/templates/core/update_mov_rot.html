@@ -1,0 +1,12 @@
+<h2>Updating Movimento Rotativo: {{ movRot }}</h2>
+
+<!-- OBS: Aqui é passado um argumento(parametro) id -->
+<form action="{% url 'core_mov_rot_update' movRot.id %}" method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Salvar</button>
+
+</form>
+

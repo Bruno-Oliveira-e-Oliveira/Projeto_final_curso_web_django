@@ -1,0 +1,12 @@
+<h2>Updating Veículo: {{ veiculo }}</h2>
+
+<!-- OBS: Aqui é passado um argumento(parametro) id -->
+<form action="{% url 'core_veiculo_update' veiculo.id %}" method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Salvar</button>
+
+</form>
+

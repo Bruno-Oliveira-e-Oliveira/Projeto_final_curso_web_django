@@ -1,0 +1,19 @@
+<h2>Lista Movimentos Mensalistas</h2>
+
+<ul>
+    {% for mov in movMens %}
+        <li>
+            <a href="{% url 'core_mov_mens_update' mov.id %}">
+                {{ mov.mensalista }} - {{ mov.total }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+<form action="{% url 'core_mov_mens_novo' %}" method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Cadastrar</button>
+</form>
