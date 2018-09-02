@@ -1,2 +1,2 @@
 # Projeto_final_curso_web_django
-Projeto de fixação de conteúdo do curso de desenvolvimento web com Python e Django.
+Projeto final do curso do Udemy: Curso desenvolvimento web 2.0 completo 2018 Python e Django.
