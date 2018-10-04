@@ -1,13 +1,21 @@
-<h2>Updating Movimento Rotativo: {{ movRot }}</h2>
+{% extends "base.html" %}
+{% load bootstrap %}
 
-<!-- OBS: Aqui é passado um argumento(parametro) id -->
-<form action="{% url 'core_mov_rot_update' movRot.id %}" method="POST">
-    {% csrf_token %}
+{% block main %}
+    <div class="row">
+        <div class="col">
+            <h2>Updating Movimento Rotativo: {{ movRot }}</h2>
 
-    {{ form.as_p }}
+            <!-- OBS: Aqui é passado um argumento(parametro) id -->
+            <form action="{% url 'core_mov_rot_update' movRot.id %}" method="POST">
+                {% csrf_token %}
 
-    <button type="submit">Salvar</button>
-    <a href="{% url 'core_mov_rot_delete' movRot.id %}">Delete</a>
+                {{ form|bootstrap }}
 
-</form>
+                <button type="submit" class="btn btn-secondary">Salvar</button>
+                <a href="{% url 'core_mov_rot_delete' movRot.id %}" class="btn btn-danger">Delete</a>
 
+            </form>
+        </div>
+    </div>
+{% endblock %}

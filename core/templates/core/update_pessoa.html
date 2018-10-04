@@ -1,13 +1,20 @@
-<h2>Updating Pessoa: {{ pessoa }}</h2>
+{% extends "base.html" %}
+{% load bootstrap %}
 
-<!-- OBS: Aqui é passado um argumento(parametro) id -->
-<form action="{% url 'core_pessoa_update' pessoa.id %}" method="POST">
-    {% csrf_token %}
+{% block main %}
+    <div class="row">
+        <div class="col">
+            <h2>Updating Pessoa: {{ pessoa }}</h2>
 
-    {{ form.as_p }}
-
-    <button type="submit">Salvar</button>
-
-</form>
-
-<a href="{% url 'core_pessoa_delete' pessoa.id %}">Deletar</a>
+            <!-- OBS: Aqui é passado um argumento(parametro) id -->
+            <form action="{% url 'core_pessoa_update' pessoa.id %}" method="POST">
+                {% csrf_token %}
+            
+                {{ form|bootstrap }}
+            
+                <button type="submit" class="btn btn-secondary">Salvar</button>
+                <a href="{% url 'core_pessoa_delete' pessoa.id %}" class="btn btn-danger">Deletar</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

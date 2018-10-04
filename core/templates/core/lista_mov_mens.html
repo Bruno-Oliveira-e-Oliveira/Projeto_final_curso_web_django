@@ -1,19 +1,46 @@
-<h2>Lista Movimentos Mensalistas</h2>
+{% extends "base.html" %}
+{% load bootstrap %}
 
-<ul>
-    {% for mov in movMens %}
-        <li>
-            <a href="{% url 'core_mov_mens_update' mov.id %}">
-                {{ mov.mensalista }} - {{ mov.total }}
-            </a>
-        </li>
-    {% endfor %}
-</ul>
+{% block main %}
+    <div class="row">
+        <div class="col-sm-6">
+            <form action="{% url 'core_mov_mens_novo' %}" method="POST">
+                {% csrf_token %}
 
-<form action="{% url 'core_mov_mens_novo' %}" method="POST">
-    {% csrf_token %}
+                {{ form|bootstrap }}
 
-    {{ form.as_p }}
+                <button type="submit" class="btn btn-secondary">Cadastrar</button>
+            </form>
+        </div>
+        <div class="col-sm-6">  
+            <ul>
+                <h1>Lista Movimentos Mensalistas</h1>
+                <h4>Clique no ID do registro para atualizar seus dados</h4>
+                <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Mensalista</th>
+                        <th scope="col">Veiculo</th>
+                        <th scope="col">Data do Pagamento</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mov in movMens %}
+                        <tr>
+                            <th scope="row"><a href="{% url 'core_mov_mens_update' mov.id %}">{{ mov.id }}</a></th>
+                            <td>{{ mov.mensalista.id }}</td>
+                            <td>{{ mov.mensalista.veiculo.placa }}</td>
+                            <td>{{ mov.dt_pgto }}</td>
+                            <td>{{ mov.total }}</td>
+                        </tr>
+                    {% endfor %}    
+                </tbody>
+                </table>
+            </ul>           
+        </div>
 
-    <button type="submit">Cadastrar</button>
-</form>
+    </div>
+
+{% endblock %}

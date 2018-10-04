@@ -1,19 +1,45 @@
-<h2>Lista Mensalistas</h2>
+{% extends "base.html" %}
+{% load bootstrap %}
 
-<ul>
-    {% for mensalista in mensalistas %}
-        <li>
-            <a href="{% url 'core_mensalista_update' mensalista.id %}"> 
-                {{ mensalista.inicio }} - {{ mensalista.veiculo.placa}}
-            </a>
-        </li>
-    {% endfor %}
-</ul>
+{% block main %}
+    <div class="row">
+        <div class="col-sm-6">
+            <form action="{% url 'core_mensalista_novo' %}" method="POST">
+                {% csrf_token %}
 
-<form action="{% url 'core_mensalista_novo' %}" method="POST">
-    {% csrf_token %}
+                {{ form|bootstrap }}
 
-    {{ form.as_p }}
+                <button type="submit"  class="btn btn-secondary">Cadastrar</button>
+            </form>
+        </div>
 
-    <button type="submit">Cadastrar</button>
-</form>
+        <div class="col-sm-6">  
+            <ul>
+                <h1>Lista Mensalistas</h1>
+                <h4>Clique no ID do registro para atualizar seus dados</h4>
+                <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Inicio</th>
+                        <th scope="col">Valor Mês</th>
+                        <th scope="col">Veículo Placa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mensalista in mensalistas %}
+                        <tr>
+                            <th scope="row"><a href="{% url 'core_mensalista_update' mensalista.id %}">{{ mensalista.id }}</a></th>
+                            <td>{{ mensalista.inicio }}</td>
+                            <td>{{ mensalista.valor_mes }}</td>
+                            <td>{{ mensalista.veiculo.placa }}</td>
+                        </tr>
+                    {% endfor %}    
+                </tbody>
+                </table>
+            </ul>           
+        </div>
+    
+    </div>
+
+{% endblock %}

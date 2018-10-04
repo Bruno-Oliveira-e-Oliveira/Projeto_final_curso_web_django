@@ -1,24 +1,55 @@
-<h2>Lista Movimentos Rotativos</h2>
+{% extends "base.html" %}
+{% load bootstrap %}
 
-<ul>
-    {% for mov in movRot %}
-        <li>
-            <a href="{% url 'core_mov_rot_update' mov.id %}">
-                {{ mov.veiculo.marca }} - {{ mov.veiculo.placa }} - {{ mov.total }} -
-                {% if mov.pago %}
-                    Pago
-                {% else %}
-                    Não foi Pago
-                {% endif %}
-            </a>
-        </li>
-    {% endfor %}
-</ul>
+{% block main %}
 
-<form action="{% url 'core_mov_rot_novo' %}" method="POST">
-    {% csrf_token %}
+    <div class="row">
+        <div class="col-sm-6">
+            <form action="{% url 'core_mov_rot_novo' %}" method="POST">
+                {% csrf_token %}
 
-    {{ form.as_p }}
+                {{ form|bootstrap }}
 
-    <button type="submit" >Cadastrar</button>
-</form>
+                <button type="submit" class="btn btn-secondary" >Cadastrar</button>
+            </form>
+        </div>
+        
+        <div class="col-sm-6">  
+            <ul>
+                <h1>Lista Movimentos Rotativos</h1>
+                <h4>Clique no ID do registro para atualizar seus dados</h4>
+                <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Check In</th>
+                        <th scope="col">Check Out</th>
+                        <th scope="col">Valor Hora</th>
+                        <th scope="col">Placa do Veículo</th>
+                        <th scope="col">Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mov in movRot %}
+                        <tr>
+                            <th scope="row"><a href="{% url 'core_mov_rot_update' mov.id %}">{{ mov.id }}</a></th>
+                            <td>{{ mov.checkin }}</td>
+                            <td>{{ mov.chekout }}</td>
+                            <td>{{ mov.valor_hora }}</td>
+                            <td>{{ mov.veiculo.placa }}</td>
+                            <td>
+                                {% if mov.pago %}
+                                    Pago
+                                {% else %}
+                                    Não foi Pago
+                                {% endif %} 
+                            </td>
+                        </tr>
+                    {% endfor %}    
+                </tbody>
+                </table>
+            </ul>           
+        </div>
+    </div>
+
+{% endblock %}

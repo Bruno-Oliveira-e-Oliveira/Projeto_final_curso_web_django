@@ -1,13 +1,21 @@
-<h2>Updating Mensalista: {{ mensalista }}</h2>
+{% extends "base.html" %}
+{% load bootstrap %}
 
-<!-- OBS: Aqui é passado um argumento(parametro) id -->
-<form action="{% url 'core_mensalista_update' mensalista.id %}" method="POST">
-    {% csrf_token %}
+{% block main %}
+    <div class="row">
+        <div class="col">
+            <h2>Updating Mensalista: {{ mensalista }}</h2>
 
-    {{ form.as_p }}
+            <!-- OBS: Aqui é passado um argumento(parametro) id -->
+            <form action="{% url 'core_mensalista_update' mensalista.id %}" method="POST">
+                {% csrf_token %}
 
-    <button type="submit">Salvar</button>
+                {{ form|bootstrap }}
 
-    <a href="{% url 'core_mensalista_delete' mensalista.id %}">Deletar</a>
-</form>
+                <button type="submit" class="btn btn-secondary">Salvar</button>
 
+                <a href="{% url 'core_mensalista_delete' mensalista.id %}" class="btn btn-danger">Deletar</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

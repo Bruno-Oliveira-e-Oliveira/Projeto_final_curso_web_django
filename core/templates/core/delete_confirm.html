@@ -1,11 +1,20 @@
-<h2>Tem certeza que quer deletar: {{ obj }}</h2>
+{% extends "base.html" %}
 
-<!-- OBS: Aqui é passado um argumento(parametro) id -->
-<form method="POST">
-    {% csrf_token %}
+{% block main %}
+    <div class="row">
+        <div class="col">
+            <h2>Tem certeza que quer deletar: {{ obj }}</h2>
 
-    {{ form.as_p }}
+            <!-- OBS: Aqui é passado um argumento(parametro) id -->
+            <form method="POST">
+                {% csrf_token %}
 
-    <button type="submit">Confirmar</button>
+                <button type="submit" class="btn btn-danger">Confirmar</button>
+            
+            </form>
+        </div>
+    </div>
 
-</form>
+    
+
+{% endblock %}
