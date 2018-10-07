@@ -7,11 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
     <title>WebSite | Estacionamento</title>
 </head>
 <body>
-    {% block main %}
-    
-    {% endblock  %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h1>Estacionamento 24 horas</h1>
+                <span>Slogan da empresa</span>
+            </div>
+            <div class="col-6">
+                <img src="{% static 'img/icone-header.jpg' %}" alt="Estacionamento 24 horas LOGO" width="150" height="150">
+            </div>
+        </div>
+        
+        {% include 'website/menu.html' %}
+        
+        {% block main %}
+        {% endblock %}
+
+        {% include 'website/footer.html' %}
+    </div>
+        
 </body>
 </html>
