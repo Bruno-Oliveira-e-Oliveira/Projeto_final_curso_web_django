@@ -9,11 +9,12 @@ O projeto tem foco no back-end e na estrutura de uma aplicação web desenvolvid
 
 As principais tecnologias utilizadas foram:
 
-HTML 5
-CSS 3
-Python 3.6.5
-Django 2.1.2
+HTML 5,
+CSS 3,
+Python 3.6.5,
+Django 2.1.2,
 Bootstrap 4
+
 (Caso queira checar as outras bibliotecas e tecnologias utilizadas, leia requirements.txt e requirements-dev.txt)
 
 Link para projeto no Heroku: https://controle-estacionamento.herokuapp.com/ 
