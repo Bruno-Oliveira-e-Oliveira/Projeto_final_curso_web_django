@@ -11,21 +11,27 @@
     <title>WebSite | Estacionamento</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <h1>Estacionamento 24 horas</h1>
-                <span>Slogan da empresa</span>
+    <div class="container-fluid" >
+        <header>
+            <div class="row bg-dark">
+                <div class="col-md-10">
+                    <h1 class="text-primary">Estacionamento 24 horas</h1>
+                    <span class="text-primary">Slogan da empresa</span>
+                </div>
+                <div class="col-md-2">
+                    <img src="{% static 'img/car.png' %}" alt="Estacionamento 24 horas LOGO" width="150" height="150">
+                </div>
+                {% include 'website/menu.html' %}
             </div>
-            <div class="col-6">
-                <img src="{% static 'img/icone-header.jpg' %}" alt="Estacionamento 24 horas LOGO" width="150" height="150">
-            </div>
-        </div>
+        </header>
         
-        {% include 'website/menu.html' %}
+
+        <main id="main">
+            {% block main %}
+            
+            {% endblock %}      
+        </main>
         
-        {% block main %}
-        {% endblock %}
 
         {% include 'website/footer.html' %}
     </div>

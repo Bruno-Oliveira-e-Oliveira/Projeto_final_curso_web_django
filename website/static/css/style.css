@@ -1,9 +1,27 @@
-
-.footer-website{
-    bottom: -5;
-    position: absolute;
+header{
+    margin-bottom: 30px;
+}
+.menu ul li a{
+    padding: 15px;
+}
+.menu ul li a:hover{
+    background-color: white;
 }
 
-.row-space {
-    margin-top: 25px;
+.footer-website{
+    position: relative;
+}
+
+.text-footer{
+    bottom: 0px;
+    padding: 10px;
+    text-align: center;
+}
+
+#main{
+    margin-bottom:30px;
+}
+
+p{
+    text-align: justify;
 }
