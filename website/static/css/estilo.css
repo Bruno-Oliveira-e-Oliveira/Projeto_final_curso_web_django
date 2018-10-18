@@ -1,27 +1,192 @@
-header{
-    margin-bottom: 30px;
-}
-.menu ul li a{
-    padding: 15px;
-}
-.menu ul li a:hover{
-    background-color: white;
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-.footer-website{
-    position: relative;
+body{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.text-footer{
-    bottom: 0px;
-    padding: 10px;
-    text-align: center;
+
+.header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color:#172D3A;
+    height:15vw;
+    display: grid;
+    align-items: center;
 }
+
+#nome-empresa{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    margin-left: 10px;
+    float: left;
+    color: #698495;
+    position: absolute;
+}
+
+
+.menu-list-item-link{
+    text-decoration: none;
+    color: #698495;
+    font-weight: bold;
+}
+
+.menu-list-item-link:hover {
+    background-color: rgba(133,156,164,0.3);
+    
+}
+
+.menu-img{
+    visibility: hidden;  
+}
+
+/* main */
 
 #main{
-    margin-bottom:30px;
+    width: 100%;
+    /* position: absolute; */
+    margin-top: 15vw;
 }
 
-p{
-    text-align: justify;
+.section{
+    width: 100%;
+    clear: both;
+}
+
+.section-bg{
+    background-color: #698495;
+    width: 100%;
+    clear: both;
+}
+
+.painel{
+    background-color: #172D3A;
+    text-align: center;
+    height: 38px;
+    display: grid;
+    align-items: center;
+}
+
+.titulo{
+    margin: 0;
+    color:#698495;
+}
+
+.p{
+    margin: 0;
+    text-indent: 20px;
+}
+
+/* Footer */
+
+#footer{
+    width: 100%;
+    bottom: 0;
+    background-color: #172D3A;
+}
+
+
+
+
+@media only screen and (max-width:630px){
+    /* Header e nav */
+    #nome-empresa{
+        font-size: 6vw;        
+    }
+    
+    .menu{
+        margin: 0;
+        padding: 0;
+        position: relative;
+        z-index: 98;
+        margin-top: 15vw;
+        width: 100%;
+        visibility: hidden;
+    }
+
+    .menu-list{
+        list-style: none;
+        background-color: #172D3A;
+        padding: 0px;
+        margin: 0px;
+        right: 0px;
+    }
+    .menu-list-item:first-child{
+        border-top: 1px;
+        border-top-color: rgba(133,156,164,0.3);
+        border-top-style: solid;
+    }
+
+    .menu-list-item{
+        border-bottom: 1px;
+        border-bottom-color: rgba(133,156,164,0.3);
+        border-bottom-style: solid;
+    }
+    
+    .menu-list-item-link{
+        font-size: 4vw;
+        padding: 10px 15px;
+        display: block;
+        text-align: center;
+    }
+
+    /* Div CheckBox e img menu */
+    .dMenu-button{
+        position: absolute;
+        right: 10px;
+    }
+
+    .menu-img{
+        width: 10vw;
+        visibility: visible; 
+    }
+
+    /* Checkbox */
+    #menu-check{
+        display: none;
+    }
+
+    /* Label menu */
+    .menu-button{
+        cursor: pointer;
+    }
+
+    /* Main */
+
+    .section{
+
+    }
+
+    .titulo{
+        
+    }
+
+    .p{
+        padding: 10px;
+    }
+
+    /* Footer */
+    #footer{
+        height: 60px;
+        text-align: center;
+        display: grid;
+        align-items: center;
+    }
+
+    .footer-creditos{
+        color:#698495;
+        font-weight: bold;
+    }
+
+
+
+
+    
+
 }
