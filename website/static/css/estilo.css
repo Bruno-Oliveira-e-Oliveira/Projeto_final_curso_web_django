@@ -50,7 +50,6 @@ body{
 
 #main{
     width: 100%;
-    /* position: absolute; */
     margin-top: 15vw;
 }
 
@@ -82,6 +81,27 @@ body{
     margin: 0;
     text-indent: 20px;
 }
+
+/* Container flex centralizador */
+
+.flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    justify-content: center;
+}
+
+/* Galeria de Imagens */
+
+.galeria{
+    border: 1px;
+    border-color: #698495;
+    border-style: solid;
+
+}
+
+
+
 
 /* Footer */
 
@@ -169,7 +189,45 @@ body{
 
     .p{
         padding: 10px;
+        text-align: justify;
     }
+
+    /* Galeria de Imagens */
+    
+    .galeria{
+        width: 90%;
+        margin-top: 15px;
+    }
+    .galeria:last-child{
+        margin-bottom: 15px;
+    }
+
+    .galeria-img{
+        width: 100%;
+        margin-bottom: 10px;  
+    }
+
+    .galeria-desc{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    /* Formulário */
+
+    .form-contato{
+        width: 90%;
+        padding: 15px 0;
+
+    }
+
+    /* Mapa */
+
+    .mapa{
+        width: 90%;
+    }
+    
+    
 
     /* Footer */
     #footer{
@@ -182,6 +240,7 @@ body{
     .footer-creditos{
         color:#698495;
         font-weight: bold;
+        padding: 0 15px;
     }
 
 

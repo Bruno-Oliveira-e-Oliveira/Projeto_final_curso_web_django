@@ -3,23 +3,32 @@
 
 {% block main %}
     <p class="text-danger">{{ mensagem}}</p>
-    <form method="POST">
-        {% csrf_token %}
-        <div class="form-group col-md-12">
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome"  >
-        </div>
-        <div class="form-group col-md-12">
-            <label for="email">Email</label>
-            <input type="email" name="email" class="form-control" id="email" placeholder="Email" >
-        </div>
-        <div class="form-group col-md-12">
-            <label for="msg">Mensagem</label>
-            <textarea name="msg" id="msg" cols="54" class="form-control" rows="10" ></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Enviar</button>
+    <section class="section">
+        <div class="flex-container">
+            <form class="form-contato" method="POST" >
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" class="form-input" id="nome" placeholder="Nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="form-input" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="msg">Mensagem</label>
+                    <textarea name="msg" id="msg" class="form-textarea"  required></textarea>
+                </div>
         
-    </form>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d93284.62355966534!2d141.30045962122276!3d43.059428644127614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0ad4755a973633%3A0x33937e9d4687bad5!2sSapporo%2C+Hokkaido%2C+Japan!5e0!3m2!1sen!2sbr!4v1538929813245" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <button type="submit" class="form-submit">Enviar</button>
+                
+            </form>
+        </div>
+        
+    </section>
+
+    <section class="section">
+        <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d93284.62355966534!2d141.30045962122276!3d43.059428644127614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0ad4755a973633%3A0x33937e9d4687bad5!2sSapporo%2C+Hokkaido%2C+Japan!5e0!3m2!1sen!2sbr!4v1538929813245" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </section>
+    
 {% endblock %}

@@ -32,8 +32,9 @@
         <nav class="menu">
             <ul class="menu-list">
                 <li class="menu-list-item"><a class="menu-list-item-link" href="{% url 'website_home' %}">Home</a></li>
-                <li class="menu-list-item"><a class="menu-list-item-link" href="">Plano</a></li>
-                <li class="menu-list-item"><a class="menu-list-item-link" href="">Sobre</a></li>
+                <li class="menu-list-item"><a class="menu-list-item-link" href="{% url 'website_plano' %}">Plano</a></li>
+                <li class="menu-list-item"><a class="menu-list-item-link" href="{% url 'website_servicos' %}">Serviços</a></li>
+                <li class="menu-list-item"><a class="menu-list-item-link" href="{% url 'website_sobre' %}">Sobre</a></li>
                 <li class="menu-list-item"><a class="menu-list-item-link" href="{% url 'website_contato' %}">Contato</a></li>
                 <li class="menu-list-item"><a class="menu-list-item-link" href="{% url 'core_home' %}">Sistema</a></li>
             </ul>
