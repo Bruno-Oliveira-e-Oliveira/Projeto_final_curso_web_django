@@ -6,8 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <title>WebSite | Estacionamento</title>
+
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <script src="{% static 'javascript/contato.js' %}"></script>
     <script>
         function menuResp(){
             var btMenu = document.getElementById('menu-check');
@@ -18,11 +20,13 @@
                 menu.item(0).style.visibility = 'hidden';
             }
         }
+
+
     </script>
 </head>
-<body>
+<body onload="abrirModal()">
     <header class="header">
-        <p id="nome-empresa">Estacionamento 24 Horas</p>
+        <p id="nome-empresa">Estacionamento<br>24 Horas</p>
         <div class="dMenu-button">
             <label class="menu-button" for="menu-check">
                 <img src="{% static 'img/menu-button.svg' %}" alt="Botão de Menu" class="menu-img">
@@ -48,9 +52,14 @@
         {% endblock %}      
     </main>
     
+    
 
     <footer id="footer">
-        <span class="footer-creditos">Desenvolvido por Bruno Oliveira e Oliveira | 2018</span>
+        <span class="footer-creditos">Desenvolvido por Bruno Oliveira e Oliveira &nbsp | &nbsp 2018 </span>
+        
+        <a href="https://github.com/Bruno-Oliveira-e-Oliveira/Projeto_final_curso_web_django" target="_blank">
+            <img class="img-github" src="{% static 'img/GitHub-Mark-32px.png' %}" alt=" Imagem do Octocat para linkar o projeto do github"> 
+        </a>
     </footer>
         
 </body>

@@ -1,8 +1,8 @@
 html, body {
     width: 100%;
-    height: 100%;
     margin: 0;
     padding: 0;
+    min-height: 100%;
 }
 
 body{
@@ -15,9 +15,10 @@ body{
     position: absolute;
     top: 0;
     background-color:#172D3A;
-    height:15vw;
+    height: 80px;
     display: grid;
     align-items: center;
+    z-index: 200;
 }
 
 #nome-empresa{
@@ -28,6 +29,7 @@ body{
     float: left;
     color: #698495;
     position: absolute;
+    font-size: 28px;
 }
 
 
@@ -50,7 +52,9 @@ body{
 
 #main{
     width: 100%;
-    margin-top: 15vw;
+    margin-top: 80px;
+    height: 100%;
+    margin-bottom: 20px;
 }
 
 .section{
@@ -64,17 +68,40 @@ body{
     clear: both;
 }
 
+/* HR linha */
+.linha{
+    width: 90%;
+}
+
 .painel{
-    background-color: #172D3A;
     text-align: center;
-    height: 38px;
-    display: grid;
+    height: 60px;
+    display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.painel-claro{
+    background-color: #698495;
+    text-align: center;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+
+.titulo-escuro-painel{
+    margin: 0;
+    margin-left: 10px;
+    color:#172D3A;
+    font-size: 25px;
 }
 
 .titulo{
     margin: 0;
-    color:#698495;
+    color: #172D3A;
+    font-size: 20px;
 }
 
 .p{
@@ -91,41 +118,94 @@ body{
     justify-content: center;
 }
 
-/* Galeria de Imagens */
 
-.galeria{
-    border: 1px;
-    border-color: #698495;
-    border-style: solid;
+
+/* Formulário Contato */
+
+.form-label{
+    display: block;
+}
+
+/* Modal Form Contato */
+.modal{
+   position: fixed;
+   display: none;
+   left: 0;
+   top: 0;
+   padding-top: 150px;
+   z-index: 500;
+   width: 100%; 
+   height: 100%; 
+   overflow: auto; 
+   background-color: rgb(0,0,0); 
+   background-color: rgba(0,0,0,0.4); 
 
 }
 
+.modal-conteudo{
+    background-color: #698495;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 90px;
 
+}
+
+.msg-form{
+    margin-top: 20px;
+    text-align: left;
+}
+
+.fechar {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.fechar:hover,.fechar:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 
 /* Footer */
 
 #footer{
     width: 100%;
-    bottom: 0;
     background-color: #172D3A;
+    height: 100px;
+    clear: both;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
+
+
+.footer-creditos{
+    color:#698495;
+    font-weight: bold;
+    padding: 5px 15px;
+}
+
+
 
 
 
 
 @media only screen and (max-width:630px){
     /* Header e nav */
-    #nome-empresa{
-        font-size: 6vw;        
-    }
     
     .menu{
         margin: 0;
         padding: 0;
         position: relative;
         z-index: 98;
-        margin-top: 15vw;
+        margin-top: 80px;
         width: 100%;
         visibility: hidden;
     }
@@ -150,10 +230,10 @@ body{
     }
     
     .menu-list-item-link{
-        font-size: 4vw;
-        padding: 10px 15px;
+        font-size: 18px;
+        padding: 15px 15px;
         display: block;
-        text-align: center;
+        text-align: left;
     }
 
     /* Div CheckBox e img menu */
@@ -163,7 +243,7 @@ body{
     }
 
     .menu-img{
-        width: 10vw;
+        width: 30px;
         visibility: visible; 
     }
 
@@ -179,17 +259,13 @@ body{
 
     /* Main */
 
-    .section{
-
-    }
-
-    .titulo{
-        
-    }
-
     .p{
         padding: 10px;
         text-align: justify;
+    }
+    
+    .titulo{
+        font-size: 25px;
     }
 
     /* Galeria de Imagens */
@@ -218,7 +294,41 @@ body{
     .form-contato{
         width: 90%;
         padding: 15px 0;
+    }
 
+    .form-label{
+        padding: 15px 0;
+    }
+
+    .form-input{
+        width: 100%;
+    }
+    
+    .form-textarea{
+        width: 100%;
+        height: 70px;
+    }
+
+    .form-submit{
+        margin-top: 15px;
+        width: 90px;
+        height: 45px;
+        font-size: 15px;
+        font-weight: bold;
+        background-color: #172D3A;
+        color: #698495;
+    }
+
+    .form-submit:hover{
+        background-color: #698495;
+        color: #172D3A;
+    }
+
+    /* Modal Form Contato */
+    .modal{
+        
+
+        
     }
 
     /* Mapa */
@@ -229,19 +339,9 @@ body{
     
     
 
-    /* Footer */
-    #footer{
-        height: 60px;
-        text-align: center;
-        display: grid;
-        align-items: center;
-    }
+    
 
-    .footer-creditos{
-        color:#698495;
-        font-weight: bold;
-        padding: 0 15px;
-    }
+    
 
 
 
