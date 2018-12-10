@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WebSite | Estacionamento</title>
 
+    {% block links %}{% endblock  %}
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-    <script src="{% static 'javascript/contato.js' %}"></script>
     <script>
         function menuResp(){
             var btMenu = document.getElementById('menu-check');
@@ -24,7 +24,7 @@
 
     </script>
 </head>
-<body onload="abrirModal()">
+<body>
     <header class="header">
         <p id="nome-empresa">Estacionamento<br>24 Horas</p>
         <div class="dMenu-button">

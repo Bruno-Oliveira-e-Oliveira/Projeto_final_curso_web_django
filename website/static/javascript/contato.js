@@ -9,11 +9,6 @@ function abrirModal() {
 
 }
 
-function a(){
-    console.log('ssssssss');
-    
-}
-
 function fecharModal() {
     document.getElementById('modal').style.display = "none";
 }
@@ -24,4 +19,14 @@ window.onclick = function(event) {
         fecharModal();
     }
 }
+
+window.onload = function(event){
+    var modal = document.getElementById("modal-msg");
+    if (modal.innerHTML != '') {
+        abrirModal()
+    }
+    
+}
+
+
 
