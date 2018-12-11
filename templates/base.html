@@ -6,55 +6,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet"  href="{% static 'bootstrap/css/bootstrap.css' %}">
-    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
-    <title>Document</title>
-</head>
-<body>  
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="nav nav-pills bg-dark">
-                    <li class="nav-item">
-                        <a class="nav-link " href="{% url 'core_home' %}">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Serviços</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{% url 'core_lista_pessoas' %}">Pessoas</a>
-                            <a class="dropdown-item" href="{% url 'core_lista_mensalistas' %}">Mensalistas</a>
-                            <a class="dropdown-item" href="{% url 'core_lista_veiculos' %}">Veículos</a>
-                            <a class="dropdown-item" href="{% url 'core_lista_mov_rot' %}">Movimentos Rotativos</a>
-                            <a class="dropdown-item" href="{% url 'core_lista_mov_mens'%}">Movimentos Mensalistas</a>
-                        </div>
-                    </li>
-                    {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link " href="{% url 'logout' %}">Logout</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Olá {{ user }}</a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link " href="{% url 'login' %}">Login</a>
-                        </li>
-                    {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link " href="{% url 'website_home' %}">Voltar ao Website</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <title>WebSite | Estacionamento</title>
+
+    {% block links %}{% endblock  %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <script>
+        function menuResp(){
+            var btMenu = document.getElementById('menu-check');
+            var menu = document.getElementsByClassName('menu');
+            if(btMenu.checked){
+                menu.item(0).style.visibility = 'visible';
+            }else{
+                menu.item(0).style.visibility = 'hidden';
+            }
+        }
+
+        function abrirMenu2() {
+            var submenu = document.getElementsByClassName("seg-menu");
+            var btncima = document.getElementsByClassName("img-submenu-cima");
+            var btnbaixo = document.getElementsByClassName("img-submenu-baixo");
+
+            if (submenu.item(0).style.display == 'none') {
+                submenu.item(0).style.display = 'block';
+                btnbaixo.item(0).style.display = 'block';
+                btncima.item(0).style.display = 'none'
+            } else {
+                submenu.item(0).style.display = 'none';
+                btnbaixo.item(0).style.display = 'none';
+                btncima.item(0).style.display = 'block'
+            }
         
+        }
 
-        {% block main %}
+
+    </script>
+</head>
+<body>
     
-        {% endblock  %}
-    </div>
+    <header class="header">
+        <p id="nome-empresa">Estacionamento<br>24 Horas</p>
+        <div class="dMenu-button">
+            <label class="menu-button" for="menu-check">
+                <img src="{% static 'img/menu-button.svg' %}" alt="Botão de Menu" class="menu-img">
+            </label>
+            <input type="checkbox" name="menu-check" id="menu-check" onclick="menuResp()" value="ativo">
+        </div>
+        <nav class="menu">
+            <ul class="menu-list">
+                <li class="menu-list-item"><a class="menu-list-item-link" href="{% url 'core_home' %}">Home</a></li>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                <li class="menu-list-item">
+                    <div class="btnSegMenu menu-list-item-link" onclick="abrirMenu2()" >
+                        Serviços
+                        <img src="{% static 'img/sub-menu-cima.png' %}" class="img-submenu-cima" alt="Seta para indicar o sub menu">
+                        <img src="{% static 'img/sub-menu-baixo.png' %}" class="img-submenu-baixo" alt="Seta para indicar o sub menu">
+                        <input type="checkbox" name="submenu-check" id="submenu-check"  value="ativo">
+                    </div> 
+                    
+                    <ul class="seg-menu menu-list">
+                        <li class="seg-menu-list-item"><a class="seg-menu-list-link menu-list-item-link" href="{% url 'core_lista_pessoas' %}">Pessoas</a></li>
+                        <li class="seg-menu-list-item"><a class="seg-menu-list-link menu-list-item-link" href="{% url 'core_lista_mensalistas' %}">Mensalistas</a></li>
+                        <li class="seg-menu-list-item"><a class="seg-menu-list-link menu-list-item-link" href="{% url 'core_lista_veiculos' %}">Veículos</a></li>
+                        <li class="seg-menu-list-item"><a class="seg-menu-list-link menu-list-item-link" href="{% url 'core_lista_mov_rot' %}">Movimentos Rotativos</a></li>
+                        <li class="seg-menu-list-item"><a class="seg-menu-list-link menu-list-item-link" href="{% url 'core_lista_mov_mens'%}">Movimentos Mensalistas</a></li>
+                    </ul>
+                </li>
+
+
+                {% if user.is_authenticated %}
+                    <li class="menu-list-item">
+                        <a class="menu-list-item-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="menu-list-item">
+                        <a class="menu-list-item-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                {% endif %}
+                
+                <li class="menu-list-item">
+                    <a class="menu-list-item-link" href="{% url 'website_home' %}">Voltar ao Website</a>
+                </li>
+
+            </ul>
+        </nav>   
+    </header>
+
+
+
+
+
+
+    <main id="main">
+        {% block main %}
+        
+        {% endblock %}      
+    </main>
+    
+    
+
+    <footer id="footer">
+        <span class="footer-creditos">Desenvolvido por Bruno Oliveira e Oliveira &nbsp | &nbsp 2018 </span>
+        
+        <a href="https://github.com/Bruno-Oliveira-e-Oliveira/Projeto_final_curso_web_django" target="_blank">
+            <img class="img-github" src="{% static 'img/GitHub-Mark-32px.png' %}" alt=" Imagem do Octocat para linkar o projeto do github"> 
+        </a>
+    </footer>
 </body>
 </html>

@@ -326,18 +326,18 @@ body{
         color: #172D3A;
     }
 
-    /* Modal Form Contato */
-    .modal{
-        
-
-        
-    }
+    
 
     /* Mapa */
 
     .mapa{
         width: 90%;
         height: 200px;
+    }
+    
+    /* Creditos icones */
+    #refCredito{
+        width: 90%;
     }
     
     

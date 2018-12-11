@@ -1,0 +1,391 @@
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color:#172D3A;
+    height: 80px;
+    display: grid;
+    align-items: center;
+    z-index: 200;
+}
+
+#nome-empresa{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    margin-left: 10px;
+    float: left;
+    color: #698495;
+    position: absolute;
+    font-size: 28px;
+}
+
+
+.menu-list-item-link{
+    text-decoration: none;
+    color: #698495;
+    font-weight: bold;
+}
+
+.menu-list-item-link:hover {
+    background-color: rgba(133,156,164,0.3);
+    
+}
+
+.menu-img{
+    visibility: hidden;  
+}
+
+/* main */
+
+#main{
+    width: 100%;
+    margin-top: 80px;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+.section{
+    width: 100%;
+    clear: both;
+}
+
+.section-bg{
+    background-color: #698495;
+    width: 100%;
+    clear: both;
+}
+
+/* HR linha */
+.linha{
+    width: 90%;
+}
+
+.painel{
+    text-align: center;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.painel-claro{
+    background-color: #698495;
+    text-align: center;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+
+.titulo-escuro-painel{
+    margin: 0;
+    margin-left: 10px;
+    color:#172D3A;
+    font-size: 25px;
+}
+
+.titulo{
+    margin: 0;
+    color: #172D3A;
+    font-size: 20px;
+}
+
+.p{
+    margin: 0;
+    text-indent: 20px;
+}
+
+/* Container flex centralizador */
+
+.flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+/* Formulário Contato */
+
+.form-label{
+    display: block;
+}
+
+/* Modal Form Contato */
+#modal{
+   position: fixed;
+   display: none;
+   left: 0;
+   top: 0;
+   padding-top: 150px;
+   z-index: 500;
+   width: 100%; 
+   height: 100%; 
+   overflow: auto; 
+   background-color: rgb(0,0,0); 
+   background-color: rgba(0,0,0,0.4); 
+
+}
+
+#modal-conteudo{
+    background-color: #698495;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 90px;
+
+}
+
+.msg-form{
+    margin-top: 20px;
+    text-align: left;
+}
+
+.fechar {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.fechar:hover,.fechar:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Footer */
+
+#footer{
+    width: 100%;
+    background-color: #172D3A;
+    height: 100px;
+    clear: both;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+
+
+.footer-creditos{
+    color:#698495;
+    font-weight: bold;
+    padding: 5px 15px;
+}
+
+
+
+
+
+
+@media only screen and (max-width:630px){
+    /* Header e nav */
+    
+    .menu{
+        margin: 0;
+        padding: 0;
+        position: relative;
+        z-index: 98;
+        margin-top: 80px;
+        width: 100%;
+        visibility: hidden;
+    }
+
+    .menu-list{
+        list-style: none;
+        background-color: #172D3A;
+        padding: 0px;
+        margin: 0px;
+        right: 0px;
+    }
+    .menu-list-item:first-child{
+        border-top: 1px;
+        border-top-color: rgba(133,156,164,0.3);
+        border-top-style: solid;
+    }
+
+    .menu-list-item{
+        border-bottom: 1px;
+        border-bottom-color: rgba(133,156,164,0.3);
+        border-bottom-style: solid;
+    }
+    
+    .menu-list-item-link{
+        font-size: 18px;
+        padding: 15px 15px;
+        display: block;
+        text-align: left;
+    }
+
+    /* Menu secundario */
+
+    .seg-menu{
+        display: none;
+        padding-left: 23%; 
+    }
+
+    .seg-menu-list-item{
+        border-bottom: 1px;
+        border-bottom-color: rgba(133,156,164,0.3);
+        border-bottom-style: solid;
+    }
+
+    .seg-menu-list-item:last-child{
+        border-bottom-style: none;
+        border-bottom: 0px;
+    }
+
+    .btnSegMenu{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .img-submenu-baixo{
+        display: none;
+    }
+
+    /* Checkbox */
+    #submenu-check{
+        display: none;
+    }
+
+
+    
+
+
+
+
+    /* Div CheckBox e img menu */
+    .dMenu-button{
+        position: absolute;
+        right: 10px;
+    }
+
+    .menu-img{
+        width: 30px;
+        visibility: visible; 
+    }
+
+    /* Checkbox */
+    #menu-check{
+        display: none;
+    }
+
+    /* Label menu */
+    .menu-button{
+        cursor: pointer;
+    }
+
+    /* Main */
+
+    .p{
+        padding: 15px;
+        text-align: justify;
+    }
+    
+    .titulo{
+        font-size: 25px;
+    }
+
+    /* Galeria de Imagens */
+    
+    .galeria{
+        width: 90%;
+        margin-top: 15px;
+    }
+    .galeria:last-child{
+        margin-bottom: 15px;
+    }
+
+    .galeria-img{
+        width: 100%;
+        margin-bottom: 10px;  
+    }
+
+    .galeria-desc{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    /* Formulário */
+
+    .form-contato{
+        width: 80%;
+        padding: 15px 0;
+    }
+
+    .form-label{
+        padding: 15px 0;
+    }
+
+    .form-input{
+        width: 95%;
+        height: 40px;
+    }
+    
+    .form-textarea{
+        width: 97%;
+        height: 100px;
+    }
+
+    .form-submit{
+        margin-top: 15px;
+        width: 90px;
+        height: 45px;
+        font-size: 15px;
+        font-weight: bold;
+        background-color: #172D3A;
+        color: #698495;
+    }
+
+    .form-submit:hover{
+        background-color: #698495;
+        color: #172D3A;
+    }
+
+    
+
+    /* Mapa */
+
+    .mapa{
+        width: 90%;
+        height: 200px;
+    }
+    
+    
+    
+
+    
+
+
+
+
+    
+
+}
